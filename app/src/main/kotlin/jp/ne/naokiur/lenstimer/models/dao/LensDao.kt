@@ -20,6 +20,11 @@ class LensDao(context: Context) :
         p0?.execSQL(SQL_CREATE)
     }
 
+    override fun onDowngrade(p0: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
+        p0?.execSQL(SQL_DELETE)
+        p0?.execSQL(SQL_CREATE)
+    }
+
     fun insert(model: Lens): Boolean {
         val db = writableDatabase
 
@@ -56,7 +61,7 @@ class LensDao(context: Context) :
     }
 
     companion object {
-        const val DATABASE_VERSION = 2
+        const val DATABASE_VERSION = 1
         const val DATABASE_NAME = "Lens.db"
 
         private const val SQL_CREATE = """
