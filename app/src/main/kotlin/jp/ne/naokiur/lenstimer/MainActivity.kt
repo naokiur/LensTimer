@@ -1,5 +1,6 @@
 package jp.ne.naokiur.lenstimer
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -19,6 +20,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val lensDao = LensDao(this)
+
+        val lenses = lensDao.selectAll()
+
+        if (lenses.count() == 0) {
+            val intent = Intent(this, InitialSettingActivity::class.java)
+            startActivity(intent)
+        }
 
 //        val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
