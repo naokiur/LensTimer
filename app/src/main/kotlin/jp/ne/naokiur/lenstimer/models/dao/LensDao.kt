@@ -40,6 +40,23 @@ class LensDao(context: Context) :
         return true
     }
 
+    fun selectLensByForEye(forEye: String): Lens {
+        val db = readableDatabase
+
+        val cursor = db.rawQuery("SELECT * FROM ${DBContracts.LensEntity.tableName} WHERE for_eye = ?", arrayOf(forEye))
+
+        cursor.moveToNext()
+
+        val lens = Lens(
+            cursor.getString(cursor.getColumnIndex(DBContracts.LensEntity.productName)),
+            cursor.getFloat(cursor.getColumnIndex(DBContracts.LensEntity.lensPower)).toBigDecimal(),
+            cursor.getString(cursor.getColumnIndex(DBContracts.LensEntity.forEye)),
+            cursor.getLong(cursor.getColumnIndex(DBContracts.LensEntity.createdAt))
+        )
+
+        return lens
+    }
+
     fun selectAll(): List<Lens> {
         val db = readableDatabase
 

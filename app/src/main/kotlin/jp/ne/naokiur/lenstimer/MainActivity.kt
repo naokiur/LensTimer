@@ -30,6 +30,12 @@ class MainActivity : AppCompatActivity() {
 
 //        val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
+        val right = lensDao.selectLensByForEye("R")
+        val left = lensDao.selectLensByForEye("L")
+
+        println("${right.productName}, ${right.lensPower}, ${right.forEye}")
+        println("${left.productName}, ${left.lensPower}, ${left.forEye}")
+
         leftEyeButton = findViewById(R.id.button2)
         rightEyeButton = findViewById(R.id.button)
 
