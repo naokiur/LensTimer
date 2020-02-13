@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper
 import android.provider.BaseColumns
 import jp.ne.naokiur.lenstimer.models.DBContracts
 import jp.ne.naokiur.lenstimer.models.Lens
+import java.math.BigDecimal
 
 class LensDao(context: Context) :
     SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
@@ -46,6 +47,8 @@ class LensDao(context: Context) :
         val cursor = db.rawQuery("SELECT * FROM ${DBContracts.LensEntity.tableName} WHERE for_eye = ?", arrayOf(forEye))
 
         cursor.moveToNext()
+
+        if (cursor.count == 0) return Lens("sample", BigDecimal.ZERO, "s", 0)
 
         val lens = Lens(
             cursor.getString(cursor.getColumnIndex(DBContracts.LensEntity.productName)),
