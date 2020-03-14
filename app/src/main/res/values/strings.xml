@@ -6,4 +6,5 @@
     <string name="label_left_eye">左目</string>
     <string name="label_right_eye">右目</string>
     <string name="title_activity_initial_setting">InitialSettingActivity</string>
+
 </resources>

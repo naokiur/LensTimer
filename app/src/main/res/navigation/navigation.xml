@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation"
+        app:startDestination="@id/initialSettingFragment">
+
+    <fragment
+            android:id="@+id/myPageFragment"
+            android:name="jp.ne.naokiur.lenstimer.MyPageFragment"
+            android:label="MyPageFragment" />
+    <fragment
+            android:id="@+id/initialSettingFragment"
+            android:name="jp.ne.naokiur.lenstimer.InitialSettingFragment"
+            android:label="InitialSettingFragment" >
+        <action
+                android:id="@+id/action_initialSettingFragment_to_myPageFragment"
+                app:destination="@id/myPageFragment" />
+    </fragment>
+</navigation>
