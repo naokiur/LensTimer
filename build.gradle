@@ -7,8 +7,10 @@ buildscript {
         
     }
     ext {
-        versionKotlin = '1.3.50'
+        // https://stackoverflow.com/questions/57670510/how-to-get-rid-of-incremental-annotation-processing-requested-warning
+        versionKotlin = '1.3.41'
         versionNavigation = '1.0.0'
+        versionRoom = '2.2.3'
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.1'

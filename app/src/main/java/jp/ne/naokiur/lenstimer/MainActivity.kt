@@ -1,14 +1,9 @@
 package jp.ne.naokiur.lenstimer
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import jp.ne.naokiur.lenstimer.models.Lens
-import jp.ne.naokiur.lenstimer.models.dao.LensDao
-import java.math.BigDecimal
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,6 +14,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 //        val lensDao = LensDao(this)
 //
 //        val lenses = lensDao.selectAll()
