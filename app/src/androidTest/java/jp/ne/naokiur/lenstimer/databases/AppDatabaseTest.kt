@@ -10,7 +10,6 @@ import jp.ne.naokiur.lenstimer.databases.daos.LensDao
 import jp.ne.naokiur.lenstimer.databases.tables.Lens
 import org.junit.After
 import org.junit.Assert.assertEquals
-import org.junit.Assert.fail
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -50,13 +49,11 @@ class AppDatabaseTest {
         val lens = Lens(productName = "sample", lensPower = "5.5", forEye = "r")
         lensDao.insert(lens)
         val result = lensDao.getAll()
-        println("result:")
-        println(result)
         assertEquals(lens.productName, result.blockingObserve()?.get(0)?.productName)
         assertEquals(lens.lensPower, result.blockingObserve()?.get(0)?.lensPower)
         assertEquals(lens.forEye, result.blockingObserve()?.get(0)?.forEye)
     }
-
+    // refs: https://stackoverflow.com/questions/44270688/unit-testing-room-and-livedata
     private fun <T> LiveData<T>.blockingObserve(): T? {
         var value: T? = null
         val latch = CountDownLatch(1)
