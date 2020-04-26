@@ -1,5 +1,6 @@
 package jp.ne.naokiur.lenstimer.databases.daos
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
@@ -11,5 +12,5 @@ interface LensDao {
     fun insert(lens: Lens)
 
     @Query("SELECT * FROM lenses")
-    fun getAll(): List<Lens>
+    fun getAll(): LiveData<List<Lens>>
 }
