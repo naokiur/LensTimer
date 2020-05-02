@@ -6,4 +6,8 @@ import jp.ne.naokiur.lenstimer.databases.tables.Lens
 
 class LensRepository(private val lensDao: LensDao) {
     val allLenses: LiveData<List<Lens>> = lensDao.getAll()
+
+    suspend fun insert(lens: Lens) {
+        lensDao.insert(lens)
+    }
 }
