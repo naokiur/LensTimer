@@ -30,6 +30,7 @@
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:hint="コンタクト製品名"
+                android:text="@{lensViewModel.leftName}"
                 app:layout_constraintLeft_toRightOf="@id/label_left_eye"
                 app:layout_constraintTop_toBottomOf="@id/label_left_eye" />
 
@@ -38,6 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="度数"
+                android:text="@{lensViewModel.leftPower}"
                 app:layout_constraintLeft_toRightOf="@id/label_left_eye"
                 app:layout_constraintTop_toBottomOf="@id/left_product_name" />
 
@@ -58,6 +60,7 @@
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:hint="コンタクト製品名"
+                android:text="@{lensViewModel.rightName}"
                 app:layout_constraintLeft_toRightOf="@id/label_right_eye"
                 app:layout_constraintTop_toBottomOf="@id/label_right_eye" />
 
@@ -66,6 +69,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="度数"
+                android:text="@{lensViewModel.rightPower}"
                 app:layout_constraintLeft_toRightOf="@id/label_right_eye"
                 app:layout_constraintTop_toBottomOf="@id/right_product_name" />
 
@@ -74,6 +78,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="決定"
+                android:onClick="@{() -> lensViewModel.insert()}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintLeft_toLeftOf="parent"

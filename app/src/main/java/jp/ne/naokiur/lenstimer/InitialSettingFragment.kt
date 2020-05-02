@@ -33,9 +33,10 @@ class InitialSettingFragment : Fragment() {
         val viewModel = ViewModelProvider(this, viewModelFactory).get(LensViewModel::class.java)
         // ここで実行すると、本スレッドでやってはいけない、的なエラーが発生する
         // ViewModelに渡してあげなければならぬ
-//        db.getAll()
 
         binding.lifecycleOwner = this
+        binding.lensViewModel = viewModel
+
         return binding.root
     }
 }
