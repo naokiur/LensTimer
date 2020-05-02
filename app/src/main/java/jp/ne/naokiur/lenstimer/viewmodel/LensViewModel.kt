@@ -1,6 +1,7 @@
 package jp.ne.naokiur.lenstimer.viewmodel
 
 import android.app.Application
+import android.content.Context
 import androidx.lifecycle.*
 import jp.ne.naokiur.lenstimer.databases.AppDatabase
 import jp.ne.naokiur.lenstimer.databases.daos.LensDao
@@ -35,6 +36,11 @@ class LensViewModel(
 
         rightName.value = ""
         rightPower.value = ""
+    }
+
+    fun registerInitial() {
+        insert()
+
     }
 
     fun insert() = viewModelScope.launch(Dispatchers.IO) {

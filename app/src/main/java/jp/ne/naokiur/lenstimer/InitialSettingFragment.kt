@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import jp.ne.naokiur.lenstimer.databases.AppDatabase
 import jp.ne.naokiur.lenstimer.databinding.FragmentInitialSettingBinding
 import jp.ne.naokiur.lenstimer.viewmodel.LensViewModel
@@ -36,6 +37,8 @@ class InitialSettingFragment : Fragment() {
 
         binding.lifecycleOwner = this
         binding.lensViewModel = viewModel
+
+        this.findNavController().navigate(R.id.action_initialSettingFragment_to_myPageFragment)
 
         return binding.root
     }
